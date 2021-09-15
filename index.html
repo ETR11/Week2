@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" type="text/css" href="src/styles.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Hello World!</h1>
+
+    <table id="menu-table" class="header">
+      <tbody>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+        </tr>
+        <tr>
+          <td>Salad</td>
+          <td>3,99€</td>
+        </tr>
+        <tr>
+          <td>Steak</td>
+          <td>15,69€</td>
+        </tr>
+        <tr>
+          <td>Pizza</td>
+          <td>7,99€</td>
+        </tr>
+        <tr>
+          <td>Magic potion</td>
+          <td>100,00€</td>
+        </tr>
+        <tr>
+          <td>Action Comics #1</td>
+          <td>10 000,00€</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form action="">
+      <textarea name="commentSection" id="cs" cols="30" rows="10"></textarea>
+      <button id="add-comment" type="button">
+        Send
+      </button>
+      <button id="remove-comments" type="button">
+        Remove
+      </button>
+    </form>
+
+    <ul id="cl" class="header"></ul>
+
+    <script>
+      document
+        .getElementById("add-comment")
+        .addEventListener("click", function () {
+          const comment = document.createElement("li");
+          comment.innerHTML = document.getElementById("cs").value;
+          document.getElementById("cl").appendChild(comment);
+        });
+      document
+        .getElementById("remove-comments")
+        .addEventListener("click", function () {
+          let del = confirm("Delete");
+          if (del == true) {
+            document.getElementById("cl").innerHTML = "";
+          }
+        });
+    </script>
+  </body>
+</html>
