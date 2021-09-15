@@ -19,3 +19,10 @@ body {
   background-color: beige;
   padding: 3px;
 }
+
+.menu-layout {
+  text-align: center;
+  max-width: 740px;
+  margin: auto;
+  width: 100%;
+}
