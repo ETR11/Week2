@@ -58,7 +58,6 @@
       </form>
 
       <ul id="cl" class="header"></ul>
-      <div id="new-cl"></div>
 
       <script>
         /*document
@@ -68,6 +67,8 @@
             comment.innerHTML = document.getElementById("cs").value;
             document.getElementById("cl").appendChild(comment);
           });*/
+        let buttonId = 0;
+
         document
           .getElementById("add-comment")
           .addEventListener("click", function () {
@@ -77,20 +78,52 @@
             cr.className = "comment-rating";
             let ct = document.createElement("p");
             ct.className = "comment-text";
+            let button = document.createElement("button");
+            button.id = buttonId.toString();
+            button.onclick = function () {
+              const buttons = document.getElementsByClassName("remove-comment");
+              for (i = 0; i < buttons.length; i++) {
+                if (buttons[i].id == this.id) {
+                  const list = document.getElementById("cl");
+                  list.removeChild(list.childNodes[i]);
+                }
+              }
+            };
+            buttonId++;
+            button.className = "remove-comment";
+            button.style.visibility = "visible";
             cr.innerHTML = document.getElementById("rating").value;
             ct.innerHTML = document.getElementById("cs").value;
             comment1.appendChild(cr);
             comment1.appendChild(ct);
-            document.getElementById("new-cl").appendChild(comment1);
+            comment1.appendChild(button);
+            document.getElementById("cl").appendChild(comment1);
           });
-        document
+
+        function click(node) {
+          console.log(node);
+          /*const buttons = document.getElementsByClassName("remove-comment");
+          for (i = 0; i <= buttons.length; i++) {
+            if (buttons[i].id == node) {
+              const list = document.getElementById("cl");
+              list.removeChild(list.childNodes[i]);
+            }
+          }*/
+        }
+        /*document
           .getElementById("remove-comments")
           .addEventListener("click", function () {
+            const list = document.getElementById("cl");
+            list.removeChild(list.childNodes[1]);
+            buttons.style.visibility = "visible";
             let del = confirm("Delete");
             if (del == true) {
               document.getElementById("cl").innerHTML = "";
             }
-          });
+          });*/
+        /*document
+          .getElementsByClassName("remove-comment")
+          .addEventListener("click", function () {});*/
       </script>
     </div>
   </body>
