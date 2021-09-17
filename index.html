@@ -46,19 +46,42 @@
           Send
         </button>
         <button id="remove-comments" type="button">
-          Remove
-        </button>
+          Remove</button
+        ><br />
+        <label for="rating">How was restaurant</label>
+        <select name="rating" id="rating">
+          <option value="good">Good</option>
+          <option value="bad">Bad</option>
+          <option value="ugly">Ugly</option>
+          <option value="bad-and-ugly">Bad and Ugly</option>
+        </select>
       </form>
 
       <ul id="cl" class="header"></ul>
+      <div id="new-cl"></div>
 
       <script>
-        document
+        /*document
           .getElementById("add-comment")
           .addEventListener("click", function () {
             const comment = document.createElement("li");
             comment.innerHTML = document.getElementById("cs").value;
             document.getElementById("cl").appendChild(comment);
+          });*/
+        document
+          .getElementById("add-comment")
+          .addEventListener("click", function () {
+            const comment1 = document.createElement("div");
+            comment1.className = "comment";
+            let cr = document.createElement("p");
+            cr.className = "comment-rating";
+            let ct = document.createElement("p");
+            ct.className = "comment-text";
+            cr.innerHTML = document.getElementById("rating").value;
+            ct.innerHTML = document.getElementById("cs").value;
+            comment1.appendChild(cr);
+            comment1.appendChild(ct);
+            document.getElementById("new-cl").appendChild(comment1);
           });
         document
           .getElementById("remove-comments")
