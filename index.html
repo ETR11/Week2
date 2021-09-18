@@ -86,7 +86,8 @@
             buttonId++;
             button.className = "remove-comment";
             button.style.visibility = "hidden";
-            cr.innerHTML = document.getElementById("rating").value;
+            let selectText = document.getElementById("rating");
+            cr.innerHTML = selectText.options[selectText.selectedIndex].text;
             ct.innerHTML = document.getElementById("cs").value;
             comment1.appendChild(cr);
             comment1.appendChild(ct);
