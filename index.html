@@ -60,13 +60,6 @@
       <ul id="cl" class="header"></ul>
 
       <script>
-        /*document
-          .getElementById("add-comment")
-          .addEventListener("click", function () {
-            const comment = document.createElement("li");
-            comment.innerHTML = document.getElementById("cs").value;
-            document.getElementById("cl").appendChild(comment);
-          });*/
         let buttonId = 0;
 
         document
@@ -80,6 +73,7 @@
             ct.className = "comment-text";
             let button = document.createElement("button");
             button.id = buttonId.toString();
+            button.innerHTML = "Remove";
             button.onclick = function () {
               const buttons = document.getElementsByClassName("remove-comment");
               for (i = 0; i < buttons.length; i++) {
@@ -91,7 +85,7 @@
             };
             buttonId++;
             button.className = "remove-comment";
-            button.style.visibility = "visible";
+            button.style.visibility = "hidden";
             cr.innerHTML = document.getElementById("rating").value;
             ct.innerHTML = document.getElementById("cs").value;
             comment1.appendChild(cr);
@@ -100,16 +94,6 @@
             document.getElementById("cl").appendChild(comment1);
           });
 
-        function click(node) {
-          console.log(node);
-          /*const buttons = document.getElementsByClassName("remove-comment");
-          for (i = 0; i <= buttons.length; i++) {
-            if (buttons[i].id == node) {
-              const list = document.getElementById("cl");
-              list.removeChild(list.childNodes[i]);
-            }
-          }*/
-        }
         /*document
           .getElementById("remove-comments")
           .addEventListener("click", function () {
@@ -121,9 +105,14 @@
               document.getElementById("cl").innerHTML = "";
             }
           });*/
-        /*document
-          .getElementsByClassName("remove-comment")
-          .addEventListener("click", function () {});*/
+        document
+          .getElementById("remove-comments")
+          .addEventListener("click", function () {
+            const buttons2 = document.getElementsByClassName("remove-comment");
+            for (i = 0; i < buttons2.length; i++) {
+              buttons2[i].style.visibility = "visible";
+            }
+          });
       </script>
     </div>
   </body>
